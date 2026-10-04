@@ -5,6 +5,7 @@ MiniANN is a custom, from-scratch artificial neural network library built entire
 
 The core design philosophy separates the mathematical blueprints (Interfaces) from the physical network topology (Neurons and Layers), while a central engine (NeuralNetwork) orchestrates memory management, forward propagation, and backpropagation via the chain rule of calculus.
 
+```mermaid
 classDiagram
     %% Core Math Data Structure
     class MathVector {
@@ -127,6 +128,7 @@ classDiagram
     NeuralNetwork o-- IOptimizer : Aggregation (Pointer to Math)
     NeuralNetwork o-- ILossFunction : Aggregation (Pointer to Math)
     NeuralNetwork ..> DataLoader : Dependency (Takes parsed data)
+```
 
 ## 2. Directory Structure
 The project adheres to professional C++ repository standards, enforcing a strict separation between headers, source logic, raw data, and compiled binaries.
