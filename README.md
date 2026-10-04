@@ -1,7 +1,5 @@
 # MiniANN: Object-Oriented Artificial Neural Network in C++
 
-**Author:** Saathwik
-
 ## 1. Project Overview and Architectural Design
 MiniANN is a custom, from-scratch artificial neural network library built entirely in C++ without external machine learning dependencies. The architecture is strictly object-oriented, leveraging advanced C++ principles such as polymorphism, encapsulation, and operator overloading to create a highly modular and extensible framework. 
 
