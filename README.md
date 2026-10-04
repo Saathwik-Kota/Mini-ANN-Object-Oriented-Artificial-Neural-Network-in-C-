@@ -218,7 +218,7 @@ The project supports three distinct execution flows, each managed by its own `ma
 Designed for real-world datasets. It dynamically parses `data.csv`, scales the network architecture to match the feature/target dimensions, trains the model over multiple epochs, and saves the final weights to `trained_classification_model.csv`.
 **Compilation Command:**
 ```bash
-g++ src/main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp -I include -o bin/miniann
+g++ src/main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp src/DataLoader.cpp -I include -o bin/miniann
 ```
 **Execution:** `.\bin\miniann.exe` (Windows) or `./bin/miniann` (Mac/Linux)
 
@@ -226,7 +226,7 @@ g++ src/main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp -I include -
 Designed for deploying the trained model. It builds the identical "empty shell" architecture from training, injects the saved weights using `loadModel()`, and processes brand new, unseen input vectors to output a final hard-class prediction based on a 0.5 Sigmoid threshold.
 **Compilation Command:**
 ```bash
-g++ src/predict_main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp -I include -o bin/predict_miniann
+g++ src/predict_main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp src/DataLoader.cpp -I include -o bin/predict_miniann
 ```
 **Execution:** `.\bin\predict_miniann.exe` (Windows) or `./bin/predict_miniann` (Mac/Linux)
 
@@ -234,6 +234,6 @@ g++ src/predict_main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp -I i
 A hardcoded logic-gate environment that bypasses the `DataLoader`. It serves as a rapid proof-of-concept to verify that the core backpropagation engine and momentum mathematics function flawlessly in an isolated environment without file I/O complexity.
 **Compilation Command:**
 ```bash
-g++ src/xor_main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp -I include -o bin/xor_miniann
+g++ src/xor_main.cpp src/NeuralNetwork.cpp src/Layer.cpp src/Neuron.cpp src/DataLoader.cpp -I include -o bin/xor_miniann
 ```
 **Execution:** `.\bin\xor_miniann.exe` (Windows) or `./bin/xor_miniann` (Mac/Linux)
