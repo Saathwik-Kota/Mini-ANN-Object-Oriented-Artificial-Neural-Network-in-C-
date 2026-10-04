@@ -190,7 +190,7 @@ The project adheres to professional C++ repository standards, enforcing a strict
 ### 3.1 The Math Engine (`MathVector.hpp`)
 Serves as the foundational linear algebra engine for the network. It wraps standard C++ `vector<double>` arrays into a custom `struct` with overloaded mathematical operators (`*`, `+`, `-`). This allows the network to compute dot products ($w \cdot x$) and scale gradients natively without writing explicit loops in the core forward/backward passes.
 
-### 3.2 Polymorphic Interfaces (`Interfaces.hpp`)
+### 3.2 Polymorphic Interfaces (`activations.hpp / lossfunction.hpp / optimizer.hpp`)
 Defines the strict contracts (Abstract Base Classes) for interchangeable network components using pure virtual functions (`= 0`).
 * **`IActivation`:** Defines `activate()` and `derivative()`. Implemented by `Sigmoid`, `ReLU`, and `Tanh`.
 * **`ILossFunction`:** Defines `calculate()` and `derivative()`. Implemented by `MSE` (Mean Squared Error) and `BinaryCrossEntropy` (optimized for binary classification targets).
@@ -207,7 +207,7 @@ The central orchestrator of the project.
 * **Propagation Algorithms:** Implements `predict()` for sequential forward passes and `train()` for Stochastic Gradient Descent (SGD) backpropagation, calculating error deltas backward from the output layer to the first hidden layer.
 * **State Persistence:** Provides `saveModel()` and `loadModel()` using `<fstream>` to serialize/deserialize network architectures and trained weights to `.csv` text files.
 
-### 3.5 The Data Pipeline (`DataLoader.hpp`)
+### 3.5 The Data Pipeline (`DataLoader.hpp / .cpp`)
 A static utility class that bridges raw CSV files into the C++ math engine. It utilizes `<sstream>` to parse comma-separated text, cast strings to double-precision floats, and cleanly separate feature matrices ($X$) from target matrices ($y$).
 
 ## 4. Execution Entry Points and Compilation Commands
