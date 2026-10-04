@@ -5,6 +5,53 @@ MiniANN is a custom, from-scratch artificial neural network library built entire
 
 The core design philosophy separates the mathematical blueprints (Interfaces) from the physical network topology (Neurons and Layers), while a central engine (NeuralNetwork) orchestrates memory management, forward propagation, and backpropagation via the chain rule of calculus.
 
+#### Simple UML diagram explaining the flow of the project
+
+```mermaid
+classDiagram
+    %% Core Classes 
+    class MathVector
+    class DataLoader
+    class Neuron
+    class Layer
+    class NeuralNetwork
+    
+    %% Interfaces (Polymorphism)
+    class IActivation { <<interface>> }
+    class ILossFunction { <<interface>> }
+    class IOptimizer { <<interface>> }
+    
+    %% Concrete Implementations
+    class Sigmoid
+    class ReLU
+    class Tanh
+    class MSE
+    class BinaryCrossEntropy
+    class SGD
+    class Momentum
+
+    %% Inheritance Relationships
+    IActivation <|-- Sigmoid
+    IActivation <|-- ReLU
+    IActivation <|-- Tanh
+    
+    ILossFunction <|-- MSE
+    ILossFunction <|-- BinaryCrossEntropy
+    
+    IOptimizer <|-- SGD
+    IOptimizer <|-- Momentum
+
+    %% Structural Relationships
+    Neuron *-- MathVector : Owns Weights
+    Neuron o-- IActivation : Uses
+    Layer *-- Neuron : Contains
+    NeuralNetwork *-- Layer : Contains
+    NeuralNetwork o-- IOptimizer : Uses
+    NeuralNetwork o-- ILossFunction : Uses
+    NeuralNetwork ..> DataLoader : Reads Data From
+```
+
+#### Detailed UML Diagram 
 ```mermaid
 classDiagram
     %% Core Math Data Structure
