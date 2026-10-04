@@ -1,5 +1,6 @@
 #pragma once
 #include "Neuron.hpp"
+#include "activations.hpp"
 #include <vector>
 
 using namespace std;

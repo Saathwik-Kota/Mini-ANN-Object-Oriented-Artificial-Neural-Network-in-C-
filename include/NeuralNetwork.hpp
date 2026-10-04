@@ -1,6 +1,8 @@
 #pragma once
 #include "Layer.hpp"
-#include "Interfaces.hpp"
+#include "activations.hpp"
+#include "lossfunction.hpp"
+#include "optimiser.hpp"
 #include <vector>
 #include <string>
 

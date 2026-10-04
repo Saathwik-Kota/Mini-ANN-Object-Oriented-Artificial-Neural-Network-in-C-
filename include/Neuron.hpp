@@ -1,6 +1,6 @@
 #pragma once
 #include "MathVector.hpp"
-#include "Interfaces.hpp"
+#include "activations.hpp"
 #include <vector>
 
 using namespace std;
